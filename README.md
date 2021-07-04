@@ -1,11 +1,9 @@
-# Deploy a Production Ready Kubernetes Cluster
+# Deploy a Kubernetes Cluster using automation 
 
 ![Kubernetes Logo](https://raw.githubusercontent.com/kubernetes-sigs/kubespray/master/docs/img/kubernetes-logo.png)
 
-If you have questions, check the documentation at [kubespray.io](https://kubespray.io) and join us on the [kubernetes slack](https://kubernetes.slack.com), channel **\#kubespray**.
-You can get your invite [here](http://slack.k8s.io/)
 
-- Can be deployed on **[AWS](docs/aws.md), GCE, [Azure](docs/azure.md), [OpenStack](docs/openstack.md), [vSphere](docs/vsphere.md), [Equinix Metal](docs/equinix-metal.md) (bare metal), Oracle Cloud Infrastructure (Experimental), or Baremetal**
+- Can be deployed on **[AWS](docs/aws.md)
 - **Highly available** cluster
 - **Composable** (Choice of the network plugin for instance)
 - Supports most popular **Linux distributions**
@@ -65,7 +63,7 @@ docker run --rm -it --mount type=bind,source="$(pwd)"/inventory/sample,dst=/inve
 ansible-playbook -i /inventory/inventory.ini --private-key /root/.ssh/id_rsa cluster.yml
 ```
 
-### Vagrant
+### Vagrant if using local vagrant 
 
 For Vagrant we need to install python dependencies for provisioning tasks.
 Check if Python and pip are installed:
@@ -103,29 +101,12 @@ vagrant up
 - [Cloud providers](docs/cloud.md)
 - [OpenStack](docs/openstack.md)
 - [AWS](docs/aws.md)
-- [Azure](docs/azure.md)
-- [vSphere](docs/vsphere.md)
-- [Equinix Metal](docs/equinix-metal.md)
 - [Large deployments](docs/large-deployments.md)
 - [Adding/replacing a node](docs/nodes.md)
 - [Upgrades basics](docs/upgrades.md)
 - [Air-Gap installation](docs/offline-environment.md)
 - [Roadmap](docs/roadmap.md)
 
-## Supported Linux Distributions
-
-- **Flatcar Container Linux by Kinvolk**
-- **Debian** Buster, Jessie, Stretch, Wheezy
-- **Ubuntu** 16.04, 18.04, 20.04
-- **CentOS/RHEL** 7, [8](docs/centos8.md)
-- **Fedora** 33, 34
-- **Fedora CoreOS** (experimental: see [fcos Note](docs/fcos.md))
-- **openSUSE** Leap 15.x/Tumbleweed
-- **Oracle Linux** 7, [8](docs/centos8.md)
-- **Alma Linux** [8](docs/centos8.md)
-- **Amazon Linux 2** (experimental: see [amazon linux notes](docs/amazonlinux.md))
-
-Note: Upstart/SysV init based OS types are not supported.
 
 ## Supported Components
 
@@ -223,22 +204,5 @@ See also [Network checker](docs/netcheck.md).
 
 - [metallb](docs/metallb.md): the MetalLB bare-metal service LoadBalancer provider.
 
-## Community docs and resources
-
-- [kubernetes.io/docs/setup/production-environment/tools/kubespray/](https://kubernetes.io/docs/setup/production-environment/tools/kubespray/)
-- [kubespray, monitoring and logging](https://github.com/gregbkr/kubernetes-kargo-logging-monitoring) by @gregbkr
-- [Deploy Kubernetes w/ Ansible & Terraform](https://rsmitty.github.io/Terraform-Ansible-Kubernetes/) by @rsmitty
-- [Deploy a Kubernetes Cluster with Kubespray (video)](https://www.youtube.com/watch?v=CJ5G4GpqDy0)
-
-## Tools and projects on top of Kubespray
-
-- [Digital Rebar Provision](https://github.com/digitalrebar/provision/blob/v4/doc/integrations/ansible.rst)
-- [Terraform Contrib](https://github.com/kubernetes-sigs/kubespray/tree/master/contrib/terraform)
-
-## CI Tests
-
-[![Build graphs](https://gitlab.com/kargo-ci/kubernetes-sigs-kubespray/badges/master/pipeline.svg)](https://gitlab.com/kargo-ci/kubernetes-sigs-kubespray/pipelines)
-
-CI/end-to-end tests sponsored by: [CNCF](https://cncf.io), [Equinix Metal](https://metal.equinix.com/), [OVHcloud](https://www.ovhcloud.com/), [ELASTX](https://elastx.se/).
 
 See the [test matrix](docs/test_cases.md) for details.
